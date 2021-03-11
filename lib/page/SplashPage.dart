@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/json/SplashImageBean.dart';
-import 'package:flutter_application/net/CustomInterceptor.dart';
 import 'package:flutter_application/net/HttpManager.dart';
 import 'package:flutter_application/widget/CountDownWidget.dart';
 import 'package:transparent_image/transparent_image.dart';
@@ -53,8 +52,7 @@ class _SplashPageState extends State<SplashPage> {
 
   Future<String> getData() async {
     Response response;
-    Dio dio = Dio();
-    dio.interceptors.add(CustomInterceptor());
+    Dio dio = HttpManager.instance.dio;
     try {
       response = await dio.get("https://bing.ioliu.cn/v1/rand?type=json");
     } on DioError catch (e) {

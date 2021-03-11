@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application/page/HomePage.dart';
+import 'package:flutter_application/tabspagestate/TabsPageState.dart';
 
 class CountDownWidget extends StatefulWidget {
   CountDownWidget({Key key}) : super(key: key);
@@ -24,7 +25,7 @@ class _CountDownWidgetState extends State<CountDownWidget> {
         _timer.cancel();
         Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => HomePage()),
+            MaterialPageRoute(builder: (context) => TabsPageState()),
             (route) => route == null);
       }
       setState(() {});
